@@ -4,17 +4,18 @@ import 'package:google_fonts/google_fonts.dart';
 import '../locations.dart';
 
 class LocationCard extends StatelessWidget {
-  final Location locatie;
+  final Location location;
 
-  const LocationCard({Key key, this.locatie}) : super(key: key);
+  const LocationCard({Key key, this.location}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.push(context,
-          MaterialPageRoute(builder: (context) => InfoPage(locatie: locatie))),
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => InfoPage(location: location))),
       child: Container(
-        margin: EdgeInsets.only(top: 10, bottom: 20, right: 10, left: 10),
-        height: 100,
+        margin: EdgeInsets.only(left: 16, top: 15, bottom: 15),
         width: 160,
         decoration: BoxDecoration(
           boxShadow: [
@@ -26,7 +27,7 @@ class LocationCard extends StatelessWidget {
             ),
           ],
           image: DecorationImage(
-            image: ExactAssetImage(locatie.path),
+            image: ExactAssetImage(location.path),
             fit: BoxFit.cover,
           ),
           borderRadius: BorderRadius.circular(12),
@@ -46,7 +47,7 @@ class LocationCard extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(left: 10, bottom: 10),
               child: Text(
-                locatie.title,
+                location.title,
                 style: GoogleFonts.poppins(fontSize: 15, color: Colors.white),
               ),
             ),

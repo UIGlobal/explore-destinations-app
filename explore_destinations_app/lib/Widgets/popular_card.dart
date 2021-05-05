@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PopularCard extends StatelessWidget {
-  final Location locatie;
+  final Location location;
 
-  PopularCard({this.locatie});
+  PopularCard({this.location});
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Navigator.push(context,
-          MaterialPageRoute(builder: (context) => InfoPage(locatie: locatie))),
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => InfoPage(location: location))),
       child: Container(
         height: 250,
         child: Column(
@@ -20,7 +22,7 @@ class PopularCard extends StatelessWidget {
               height: 170,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: ExactAssetImage(locatie.path), fit: BoxFit.cover),
+                    image: ExactAssetImage(location.path), fit: BoxFit.cover),
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
@@ -41,7 +43,7 @@ class PopularCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(locatie.loc,
+                    Text(location.loc,
                         style: GoogleFonts.poppins(
                             fontSize: 16, fontWeight: FontWeight.w500)),
                     Row(
@@ -51,7 +53,7 @@ class PopularCard extends StatelessWidget {
                           color: Colors.orange,
                           size: 14,
                         ),
-                        Text(locatie.title,
+                        Text(location.title,
                             style: GoogleFonts.poppins(color: Colors.orange)),
                       ],
                     ),
@@ -72,7 +74,7 @@ class PopularCard extends StatelessWidget {
                           "\$",
                           style: GoogleFonts.poppins(fontSize: 21),
                         ),
-                        Text("115",
+                        Text(location.price,
                             style: GoogleFonts.poppins(
                                 fontSize: 21, fontWeight: FontWeight.w500)),
                         Text(

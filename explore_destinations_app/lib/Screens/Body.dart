@@ -35,7 +35,7 @@ class Body extends StatelessWidget {
           ),
         ),
         SliverPadding(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           sliver: SliverToBoxAdapter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,22 +56,19 @@ class Body extends StatelessWidget {
             ),
           ),
         ),
-        SliverPadding(
-          padding: EdgeInsets.only(left: 20),
-          sliver: SliverToBoxAdapter(
-            child: Container(
-              height: 260,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) =>
-                    LocationCard(locatie: locatii[index]),
-                itemCount: 3,
-              ),
+        SliverToBoxAdapter(
+          child: Container(
+            height: 260,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) =>
+                  LocationCard(location: locations[index]),
+              itemCount: locations.length,
             ),
           ),
         ),
         SliverPadding(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           sliver: SliverToBoxAdapter(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -95,11 +92,11 @@ class Body extends StatelessWidget {
           ),
         ),
         SliverPadding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
+          padding: EdgeInsets.symmetric(horizontal: 16),
           sliver: SliverList(
             delegate: SliverChildBuilderDelegate(
-              (context, index) => PopularCard(locatie: locatii[index]),
-              childCount: locatii.length,
+              (context, index) => PopularCard(location: locations[index]),
+              childCount: locations.length,
             ),
           ),
         ),

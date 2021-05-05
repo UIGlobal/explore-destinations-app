@@ -1,12 +1,11 @@
 import 'package:explore_destinations_app/locations.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 
 class InfoPage extends StatelessWidget {
-  final Location locatie;
+  final Location location;
 
-  const InfoPage({Key key, this.locatie}) : super(key: key);
+  const InfoPage({Key key, this.location}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +20,7 @@ class InfoPage extends StatelessWidget {
                 borderRadius:
                     BorderRadius.only(bottomRight: Radius.circular(30)),
                 image: DecorationImage(
-                    image: ExactAssetImage(locatie.path), fit: BoxFit.cover),
+                    image: ExactAssetImage(location.path), fit: BoxFit.cover),
               ),
               child: Container(
                 decoration: BoxDecoration(
@@ -37,7 +36,7 @@ class InfoPage extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.bottomLeft,
                   child: Container(
-                    padding: EdgeInsets.only(left: 20, right: 20),
+                    padding: EdgeInsets.only(left: 16, right: 16),
                     height: 70,
                     width: double.infinity,
                     child: Row(
@@ -47,7 +46,7 @@ class InfoPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              locatie.loc,
+                              location.loc,
                               style: GoogleFonts.poppins(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w500,
@@ -62,7 +61,7 @@ class InfoPage extends StatelessWidget {
                                   size: 15,
                                 ),
                                 Text(
-                                  locatie.title,
+                                  location.title,
                                   style: GoogleFonts.poppins(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w300,
@@ -76,7 +75,7 @@ class InfoPage extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Text("\$150",
+                            Text("\$${location.price}",
                                 style: GoogleFonts.poppins(
                                     fontSize: 20,
                                     color: Colors.white,
@@ -96,7 +95,7 @@ class InfoPage extends StatelessWidget {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             sliver: SliverToBoxAdapter(
               child: Container(
                 height: 50,
@@ -167,7 +166,7 @@ class InfoPage extends StatelessWidget {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             sliver: SliverToBoxAdapter(
               child: Container(
                 width: double.infinity,
@@ -181,26 +180,12 @@ class InfoPage extends StatelessWidget {
                             fontSize: 20)),
                     Row(
                       children: [
-                        Icon(
-                          Icons.star,
-                          size: 20,
-                          color: Colors.orange.withOpacity(0.5),
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: 20,
-                          color: Colors.orange.withOpacity(0.5),
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: 20,
-                          color: Colors.orange.withOpacity(0.5),
-                        ),
-                        Icon(
-                          Icons.star,
-                          size: 20,
-                          color: Colors.orange.withOpacity(0.5),
-                        ),
+                        for (int i = 0; i < 4; i++)
+                          Icon(
+                            Icons.star,
+                            size: 20,
+                            color: Colors.orange.withOpacity(0.5),
+                          ),
                         Icon(
                           Icons.star_border,
                           size: 20,
@@ -214,16 +199,16 @@ class InfoPage extends StatelessWidget {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             sliver: SliverToBoxAdapter(
-                child: AutoSizeText(
+                child: Text(
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
               style: GoogleFonts.poppins(color: Colors.black.withOpacity(0.5)),
             )),
           ),
           SliverToBoxAdapter(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               width: double.infinity,
               height: 70,
               color: Colors.orange.withOpacity(0.1),
@@ -266,7 +251,7 @@ class InfoPage extends StatelessWidget {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             sliver: SliverToBoxAdapter(
               child: Text("Location",
                   style: GoogleFonts.poppins(
@@ -276,7 +261,7 @@ class InfoPage extends StatelessWidget {
             ),
           ),
           SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             sliver: SliverToBoxAdapter(
               child: Container(
                 height: 200,
@@ -284,7 +269,7 @@ class InfoPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
-                    image: ExactAssetImage("assets/mapa.png"),
+                    image: ExactAssetImage("assets/map.png"),
                     fit: BoxFit.cover,
                   ),
                 ),
