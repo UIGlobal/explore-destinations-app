@@ -1,7 +1,7 @@
-import 'package:explore_destinations_app/Screens/screens.dart';
-import 'package:explore_destinations_app/locations.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../export.dart';
 
 class PopularCard extends StatelessWidget {
   final Location location;

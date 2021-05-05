@@ -1,7 +1,6 @@
-import 'package:explore_destinations_app/Screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../locations.dart';
+import '../export.dart';
 
 class LocationCard extends StatelessWidget {
   final Location location;

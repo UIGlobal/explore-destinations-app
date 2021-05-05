@@ -1,39 +1,19 @@
-import 'package:explore_destinations_app/Widgets/all_widgets.dart';
-import 'package:explore_destinations_app/locations.dart';
+import 'package:explore_destinations_app/Widgets/location_card.dart';
+import 'package:explore_destinations_app/Widgets/popular_card.dart';
+import 'package:explore_destinations_app/export.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Body extends StatelessWidget {
+import '../locations.dart';
+
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
+    return Scaffold(
+        body: CustomScrollView(
       scrollDirection: Axis.vertical,
       slivers: [
-        SliverAppBar(
-          elevation: 0,
-          backgroundColor: Colors.transparent,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                icon: Icon(
-                  Icons.menu,
-                  size: 28,
-                  color: Colors.black,
-                ),
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.notifications,
-                  color: Colors.black,
-                  size: 25,
-                ),
-                onPressed: () {},
-              ),
-            ],
-          ),
-        ),
+        CustomAppBar(),
         SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           sliver: SliverToBoxAdapter(
@@ -101,6 +81,6 @@ class Body extends StatelessWidget {
           ),
         ),
       ],
-    );
+    ));
   }
 }
